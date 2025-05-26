@@ -16,15 +16,3 @@ Your project is live at:
 
 **[https://vercel.com/mateus-projects-ce12fbed/v0-image-background-design](https://vercel.com/mateus-projects-ce12fbed/v0-image-background-design)**
 
-## Build your app
-
-Continue building your app on:
-
-**[https://v0.dev/chat/projects/i4G1kjULbVw](https://v0.dev/chat/projects/i4G1kjULbVw)**
-
-## How It Works
-
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository

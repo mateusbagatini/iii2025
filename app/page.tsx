@@ -204,26 +204,40 @@ export default function AnimatedBackground() {
 
           {/* Bottom Left - Dates (NEW) */}
           <div className="absolute bottom-[5%] left-[5%] w-[40%] max-w-[150px]">
-            <Image
-              src="/images/dates-ok-new.svg"
-              alt="Exhibition date information"
-              width={191}
-              height={324}
-              className="w-full h-auto"
-              priority
-            />
+            <div className="relative">
+              {/* Subtle glow effect */}
+              <div
+                className="absolute inset-0 blur-md opacity-20 bg-white rounded-full transform scale-110"
+                aria-hidden="true"
+              ></div>
+              <Image
+                src="/images/dates-ok-new.svg"
+                alt="Exhibition date information"
+                width={191}
+                height={324}
+                className="w-full h-auto relative z-10"
+                priority
+              />
+            </div>
           </div>
 
           {/* Bottom Right - Venue */}
           <div className="absolute bottom-[5%] right-[5%] w-[40%] max-w-[150px]">
-            <Image
-              src="/images/venue-ok.svg"
-              alt="Exhibition venue information"
-              width={140}
-              height={200}
-              className="w-full h-auto"
-              priority
-            />
+            <div className="relative">
+              {/* Subtle glow effect */}
+              <div
+                className="absolute inset-0 blur-md opacity-20 bg-white rounded-full transform scale-110"
+                aria-hidden="true"
+              ></div>
+              <Image
+                src="/images/venue-ok.svg"
+                alt="Exhibition venue information"
+                width={140}
+                height={200}
+                className="w-full h-auto relative z-10"
+                priority
+              />
+            </div>
           </div>
         </div>
       )}

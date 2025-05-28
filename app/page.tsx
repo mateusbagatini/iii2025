@@ -8,11 +8,15 @@ export default function AnimatedBackground() {
   const [touchPosition, setTouchPosition] = useState({ x: 50, y: 50 })
   const [isMobile, setIsMobile] = useState(false)
   const [isMouseDown, setIsMouseDown] = useState(false)
+  const [viewportHeight, setViewportHeight] = useState(0)
 
   useEffect(() => {
-    // Check if device is mobile
+    // Check if device is mobile and set viewport height
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768 || "ontouchstart" in window)
+      const isMobileDevice = window.innerWidth <= 768 || "ontouchstart" in window
+      setIsMobile(isMobileDevice)
+      // Set viewport height for mobile to handle browser UI
+      setViewportHeight(window.innerHeight)
     }
 
     checkMobile()
@@ -84,7 +88,11 @@ export default function AnimatedBackground() {
   }, [isMobile])
 
   return (
-    <div ref={containerRef} className="relative min-h-screen overflow-hidden">
+    <div
+      ref={containerRef}
+      className={`relative ${isMobile ? "h-screen overflow-hidden" : "min-h-screen"}`}
+      style={isMobile ? { height: `${viewportHeight}px` } : {}}
+    >
       {/* Base gradient background */}
       <div className="absolute inset-0 z-0">
         {isMobile ? (
@@ -129,7 +137,7 @@ export default function AnimatedBackground() {
         }}
       />
 
-      {/* Interactive light orbs - simplified for mobile */}
+      {/* Interactive light orbs - desktop only */}
       {!isMobile && (
         <>
           <div
@@ -153,19 +161,6 @@ export default function AnimatedBackground() {
         </>
       )}
 
-      {/* Mobile-optimized single orb */}
-      {isMobile && (
-        <div
-          className="absolute z-20 w-32 h-32 rounded-full blur-2xl animate-pulse opacity-50 pointer-events-none transition-all duration-700"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(159,122,234,0.8) 0%, rgba(236,72,153,0.4) 50%, rgba(159,122,234,0) 70%)",
-            left: `calc(${touchPosition.x}% - 4rem)`,
-            top: `calc(${touchPosition.y}% - 4rem)`,
-          }}
-        />
-      )}
-
       {/* Fixed exhibition information overlay - desktop only */}
       {!isMobile && (
         <div className="absolute inset-0 z-30 pointer-events-none">
@@ -180,61 +175,55 @@ export default function AnimatedBackground() {
         </div>
       )}
 
-      {/* Mobile SVG elements with increased margins and bottom elements positioned higher */}
+      {/* Mobile SVG elements - optimized positioning to avoid overlapping with background text */}
       {isMobile && (
-        <div className="relative h-screen flex flex-col justify-between py-8 px-8 z-30 pointer-events-none">
-          {/* Top row */}
-          <div className="flex justify-between w-full">
-            {/* Top Left - Toudai (University of Tokyo Production Exhibition) */}
-            <div className="w-[35%] max-w-[140px]">
-              <Image
-                src="/images/toudai.svg"
-                alt="東京大学制作展"
-                width={207}
-                height={34}
-                className="w-full h-auto"
-                priority
-              />
-            </div>
-
-            {/* Top Right - iii exhibition Beginning 2025 */}
-            <div className="w-[35%] max-w-[140px]">
-              <Image
-                src="/images/iiiexhibition.svg"
-                alt="iii exhibition Beginning 2025"
-                width={213}
-                height={62}
-                className="w-full h-auto"
-                priority
-              />
-            </div>
+        <div className="absolute inset-0 z-30 pointer-events-none">
+          {/* Top Left - Toudai (University of Tokyo Production Exhibition) */}
+          <div className="absolute top-[5%] left-[5%] w-[40%] max-w-[150px]">
+            <Image
+              src="/images/toudai.svg"
+              alt="東京大学制作展"
+              width={207}
+              height={34}
+              className="w-full h-auto"
+              priority
+            />
           </div>
 
-          {/* Bottom row - positioned higher to avoid being hidden by browser UI */}
-          <div className="flex justify-between w-full mb-12">
-            {/* Bottom Left - Venue */}
-            <div className="w-[35%] max-w-[140px]">
-              <Image
-                src="/images/venue-ok.svg"
-                alt="Exhibition venue information"
-                width={140}
-                height={200}
-                className="w-full h-auto"
-                priority
-              />
-            </div>
+          {/* Top Right - iii exhibition Beginning 2025 */}
+          <div className="absolute top-[5%] right-[5%] w-[40%] max-w-[150px]">
+            <Image
+              src="/images/iiiexhibition.svg"
+              alt="iii exhibition Beginning 2025"
+              width={213}
+              height={62}
+              className="w-full h-auto"
+              priority
+            />
+          </div>
 
-            {/* Bottom Right - Dates */}
-            <div className="w-[35%] max-w-[140px]">
-              <Image
-                src="/images/dates-ok.svg"
-                alt="Exhibition date information"
-                width={140}
-                height={200}
-                className="w-full h-auto"
-                priority
-              />
-            </div>
+          {/* Bottom Left - Venue */}
+          <div className="absolute bottom-[15%] left-[5%] w-[40%] max-w-[150px]">
+            <Image
+              src="/images/venue-ok.svg"
+              alt="Exhibition venue information"
+              width={140}
+              height={200}
+              className="w-full h-auto"
+              priority
+            />
+          </div>
+
+          {/* Bottom Right - Dates */}
+          <div className="absolute bottom-[15%] right-[5%] w-[40%] max-w-[150px]">
+            <Image
+              src="/images/dates-ok.svg"
+              alt="Exhibition date information"
+              width={140}
+              height={200}
+              className="w-full h-auto"
+              priority
+            />
           </div>
         </div>
       )}

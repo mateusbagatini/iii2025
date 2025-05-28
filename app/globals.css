@@ -69,6 +69,19 @@
 @media (max-width: 768px) {
   body {
     touch-action: pan-x pan-y;
+    /* Prevent scrolling on mobile */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  /* Ensure full viewport height on mobile browsers */
+  html,
+  body {
+    height: 100%;
+    height: -webkit-fill-available;
+    height: 100dvh;
   }
 }
 

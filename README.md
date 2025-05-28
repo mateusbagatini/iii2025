@@ -15,4 +15,3 @@ Any changes you make to your deployed app will be automatically pushed to this r
 Your project is live at:
 
 **[https://vercel.com/mateus-projects-ce12fbed/v0-image-background-design](https://vercel.com/mateus-projects-ce12fbed/v0-image-background-design)**
-

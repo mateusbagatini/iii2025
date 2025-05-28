@@ -87,19 +87,28 @@ export default function AnimatedBackground() {
     <div ref={containerRef} className="relative min-h-screen overflow-hidden">
       {/* Base gradient background */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/japanese-gradient-background.png"
-          alt="iii Exhibition | Beginning 2025"
-          fill
-          priority
-          className="object-cover transition-transform duration-500 ease-out"
-          sizes="100vw"
-          style={{
-            transform: isMobile
-              ? `scale(1.1)`
-              : `scale(1.05) translate(${(touchPosition.x - 50) * -0.02}%, ${(touchPosition.y - 50) * -0.02}%)`,
-          }}
-        />
+        {isMobile ? (
+          <Image
+            src="/images/mobile-background.png"
+            alt="iii Exhibition | Beginning 2025"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+        ) : (
+          <Image
+            src="/images/japanese-gradient-background.png"
+            alt="iii Exhibition | Beginning 2025"
+            fill
+            priority
+            className="object-cover transition-transform duration-500 ease-out"
+            sizes="100vw"
+            style={{
+              transform: `scale(1.05) translate(${(touchPosition.x - 50) * -0.02}%, ${(touchPosition.y - 50) * -0.02}%)`,
+            }}
+          />
+        )}
       </div>
 
       {/* Darkening overlay when mouse is pressed */}
@@ -171,11 +180,11 @@ export default function AnimatedBackground() {
         </div>
       )}
 
-      {/* Mobile SVG elements */}
+      {/* Mobile SVG elements with increased margins */}
       {isMobile && (
         <>
           {/* Top Left - Toudai */}
-          <div className="absolute top-4 left-4 z-30 pointer-events-none w-[35%] max-w-[140px]">
+          <div className="absolute top-8 left-8 z-30 pointer-events-none w-[35%] max-w-[140px]">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 217.35 30" className="w-full h-auto">
               <text
                 transform="translate(0 24.95)"
@@ -193,7 +202,7 @@ export default function AnimatedBackground() {
           </div>
 
           {/* Top Right - iii exhibition with Beginning 2025 */}
-          <div className="absolute top-4 right-4 z-30 pointer-events-none w-[35%] max-w-[140px]">
+          <div className="absolute top-8 right-8 z-30 pointer-events-none w-[35%] max-w-[140px]">
             <Image
               src="/images/iii.svg"
               alt="iii exhibition Beginning 2025"
@@ -205,7 +214,7 @@ export default function AnimatedBackground() {
           </div>
 
           {/* Bottom Left - Venue */}
-          <div className="absolute bottom-4 left-4 z-30 pointer-events-none w-[35%] max-w-[140px]">
+          <div className="absolute bottom-8 left-8 z-30 pointer-events-none w-[35%] max-w-[140px]">
             <Image
               src="/images/venue-ok.svg"
               alt="Exhibition venue information"
@@ -217,7 +226,7 @@ export default function AnimatedBackground() {
           </div>
 
           {/* Bottom Right - Dates */}
-          <div className="absolute bottom-4 right-4 z-30 pointer-events-none w-[35%] max-w-[140px]">
+          <div className="absolute bottom-8 right-8 z-30 pointer-events-none w-[35%] max-w-[140px]">
             <Image
               src="/images/dates-ok.svg"
               alt="Exhibition date information"

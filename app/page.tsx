@@ -202,23 +202,23 @@ export default function AnimatedBackground() {
             />
           </div>
 
-          {/* Bottom Left - Venue */}
+          {/* Bottom Left - Dates (NEW) */}
           <div className="absolute bottom-[5%] left-[5%] w-[40%] max-w-[150px]">
             <Image
-              src="/images/venue-ok.svg"
-              alt="Exhibition venue information"
-              width={140}
-              height={200}
+              src="/images/dates-ok-new.svg"
+              alt="Exhibition date information"
+              width={191}
+              height={324}
               className="w-full h-auto"
               priority
             />
           </div>
 
-          {/* Bottom Right - Dates */}
+          {/* Bottom Right - Venue */}
           <div className="absolute bottom-[5%] right-[5%] w-[40%] max-w-[150px]">
             <Image
-              src="/images/dates-ok.svg"
-              alt="Exhibition date information"
+              src="/images/venue-ok.svg"
+              alt="Exhibition venue information"
               width={140}
               height={200}
               className="w-full h-auto"

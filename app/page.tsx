@@ -180,63 +180,63 @@ export default function AnimatedBackground() {
         </div>
       )}
 
-      {/* Mobile SVG elements with increased margins */}
+      {/* Mobile SVG elements with increased margins and bottom elements positioned higher */}
       {isMobile && (
-        <>
-          {/* Top Left - Toudai */}
-          <div className="absolute top-8 left-8 z-30 pointer-events-none w-[35%] max-w-[140px]">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 217.35 30" className="w-full h-auto">
-              <text
-                transform="translate(0 24.95)"
-                fill="#fff"
-                fontFamily="ToppanBunkyuMidashiMinchoStdN-ExtraBold-83pv-RKSJ-H, 'Toppan Bunkyu Midashi Mincho'"
-                fontWeight="700"
-                fontSize="28.35px"
-                letterSpacing=".05em"
-              >
-                <tspan x="0" y="0">
-                  東京大学制作展
-                </tspan>
-              </text>
-            </svg>
+        <div className="relative h-screen flex flex-col justify-between py-8 px-8 z-30 pointer-events-none">
+          {/* Top row */}
+          <div className="flex justify-between w-full">
+            {/* Top Left - Toudai (University of Tokyo Production Exhibition) */}
+            <div className="w-[35%] max-w-[140px]">
+              <Image
+                src="/images/toudai.svg"
+                alt="東京大学制作展"
+                width={207}
+                height={34}
+                className="w-full h-auto"
+                priority
+              />
+            </div>
+
+            {/* Top Right - iii exhibition Beginning 2025 */}
+            <div className="w-[35%] max-w-[140px]">
+              <Image
+                src="/images/iiiexhibition.svg"
+                alt="iii exhibition Beginning 2025"
+                width={213}
+                height={62}
+                className="w-full h-auto"
+                priority
+              />
+            </div>
           </div>
 
-          {/* Top Right - iii exhibition with Beginning 2025 */}
-          <div className="absolute top-8 right-8 z-30 pointer-events-none w-[35%] max-w-[140px]">
-            <Image
-              src="/images/iii.svg"
-              alt="iii exhibition Beginning 2025"
-              width={140}
-              height={60}
-              className="w-full h-auto"
-              priority
-            />
-          </div>
+          {/* Bottom row - positioned higher to avoid being hidden by browser UI */}
+          <div className="flex justify-between w-full mb-12">
+            {/* Bottom Left - Venue */}
+            <div className="w-[35%] max-w-[140px]">
+              <Image
+                src="/images/venue-ok.svg"
+                alt="Exhibition venue information"
+                width={140}
+                height={200}
+                className="w-full h-auto"
+                priority
+              />
+            </div>
 
-          {/* Bottom Left - Venue */}
-          <div className="absolute bottom-8 left-8 z-30 pointer-events-none w-[35%] max-w-[140px]">
-            <Image
-              src="/images/venue-ok.svg"
-              alt="Exhibition venue information"
-              width={140}
-              height={200}
-              className="w-full h-auto"
-              priority
-            />
+            {/* Bottom Right - Dates */}
+            <div className="w-[35%] max-w-[140px]">
+              <Image
+                src="/images/dates-ok.svg"
+                alt="Exhibition date information"
+                width={140}
+                height={200}
+                className="w-full h-auto"
+                priority
+              />
+            </div>
           </div>
-
-          {/* Bottom Right - Dates */}
-          <div className="absolute bottom-8 right-8 z-30 pointer-events-none w-[35%] max-w-[140px]">
-            <Image
-              src="/images/dates-ok.svg"
-              alt="Exhibition date information"
-              width={140}
-              height={200}
-              className="w-full h-auto"
-              priority
-            />
-          </div>
-        </>
+        </div>
       )}
     </div>
   )

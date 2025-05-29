@@ -97,7 +97,7 @@ export default function AnimatedBackground() {
       <div className="absolute inset-0 z-0">
         {isMobile ? (
           <Image
-            src="/images/mobile-background-new.png"
+            src="/images/mobile-background-updated.png"
             alt="iii Exhibition | Beginning 2025"
             fill
             priority

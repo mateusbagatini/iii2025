@@ -13,7 +13,7 @@ export const metadata = {
     siteName: "iii Exhibition",
     images: [
       {
-        url: "/images/japanese-gradient-background.png",
+        url: "/images/sns-share.png",
         width: 1200,
         height: 630,
         alt: "iii Exhibition | Beginning 2025",
@@ -26,7 +26,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "iii Exhibition | Beginning 2025",
     description: "7.4 (Fri) ~ 7.7 (Mon) - 11:00 ~ 19:00 Site Coming Soon",
-    images: ["/images/japanese-gradient-background.png"],
+    images: ["/images/sns-share.png"],
     creator: "@iii_exhibition",
   },
   robots: {
@@ -37,7 +37,7 @@ export const metadata = {
     icon: "/favicon.ico",
     apple: "/apple-icon.png",
   },
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({

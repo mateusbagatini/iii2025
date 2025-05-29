@@ -4,11 +4,11 @@ import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata = {
   title: "iii Exhibition | Beginning 2025",
-  description: "7.4 (Fri) ~ 7.7 (Mon) - 11:00 ~ 19:00 Site Coming Soon",
+  description: "7.4 (Fri) ~ 7.7 (Mon) - 11:00 ~ 19:00 @UTokyo iii Main Building B1 | Site Coming Soon",
   viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
   openGraph: {
     title: "iii Exhibition | Beginning 2025",
-    description: "7.4 (Fri) ~ 7.7 (Mon) - 11:00 ~ 19:00 Site Coming Soon",
+    description: "7.4 (Fri) ~ 7.7 (Mon) - 11:00 ~ 19:00 @UTokyo iii Main Building B1 | Site Coming Soon",
     url: "https://iii-exhibition.vercel.app",
     siteName: "iii Exhibition",
     images: [
@@ -25,7 +25,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "iii Exhibition | Beginning 2025",
-    description: "7.4 (Fri) ~ 7.7 (Mon) - 11:00 ~ 19:00 Site Coming Soon",
+    description: "7.4 (Fri) ~ 7.7 (Mon) - 11:00 ~ 19:00 @UTokyo iii Main Building B1 | Site Coming Soon",
     images: ["/images/sns-share.png"],
     creator: "@iii_exhibition",
   },
